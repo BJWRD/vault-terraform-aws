@@ -13,8 +13,6 @@ Enter Architecture Image Here
 * A locally configured AWS profile for the above IAM user
 * Terraform installation - [steps](https://learn.hashicorp.com/tutorials/terraform/install-cli)
 * AWS EC2 key pair - [steps](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html)
-* Docker installation - [steps](https://docs.docker.com/engine/install/)
-* Docker-Compose setup - [steps](https://docs.docker.com/compose/)
 
 # How to Apply/Destroy
 This section details the deployment and teardown of the architecture. **Warning: this will create AWS resources that costs money**
@@ -86,7 +84,7 @@ TO BE UPDATED
 # Requirements
 | Name          | Version       |
 | ------------- |:-------------:|
-| terraform     | ~>1.29     |
+| terraform     | ~>1.3.0     |
 | aws           | ~>4.30.0      |
 
 # Providers
