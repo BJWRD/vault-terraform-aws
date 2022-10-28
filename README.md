@@ -6,7 +6,7 @@
 This network architecture has three subnet tiers split across three availability zones. The subnets will also have a VPC routing table that will provide it access to the internet. The Security Group will allow port 22 access to those that have the relevant .pem file, this will allow the EC2 host to be accessed and then configured using the specified commands further down this README.
 
 
-Enter Architecture Image Here
+![image](https://user-images.githubusercontent.com/83971386/198644799-1e3e2a34-8409-4678-8934-679e5172b68c.png)
 
 # Prerequisites
 * An AWS Account with an IAM user capable of creating resources – `AdminstratorAccess`
