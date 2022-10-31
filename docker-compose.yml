@@ -4,10 +4,10 @@ services:
     container_name: vault
     build: .
     volumes:
-      - /home/vault:/home/vault
-      - /home/vault/logs:/home/vault/logs
-      - /home/vault/data:/home/vault/data
-      - /home/vault/config:/home/vault/config 
+      - /home/ec2-user/vault/home:/home/vault
+      - /home/ec2-user/vault/logs:/home/vault/logs
+      - /home/ec2-user/vault/data:/home/vault/data
+      - /home/ec2-user/vault-terraform-aws/config:/home/vault/config
     ports:
       - 8080:8080
     cap_add:

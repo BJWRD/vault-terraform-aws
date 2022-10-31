@@ -12,10 +12,11 @@ RUN yum update -y \
     && mkdir -p /vault/data \
     && chown -R vault:vault /vault 
 
+###Copying files to Container
 COPY ./config/config.hcl /home/vault/config/config.hcl 
-
 COPY vault /vault
 
+###Running Command
 RUN chmod +x /vault
 
 ###Vault path
@@ -25,4 +26,4 @@ ENV PATH="PATH=$PATH:$PWD/vault"
 EXPOSE 8080
 
 ###Running vault
-#ENTRYPOINT ["vault server -config=/home/vault/config/config.hcl"]
+ENTRYPOINT ["vault server -config=/home/vault/config/config.hcl"]
