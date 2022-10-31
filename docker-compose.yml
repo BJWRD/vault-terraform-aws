@@ -10,9 +10,9 @@ services:
       - /home/vault/config:/home/vault/config 
     ports:
       - 8080:8080
-      - 8081:8081
     cap_add:
       - IPC_LOCK
+    tty: true
     logging:
       options:
         max-size: "10mb"

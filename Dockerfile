@@ -6,16 +6,17 @@ RUN cd /etc/yum.repos.d/ \
     && sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* \
     && sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-* 
 
-###Further container configuration
+###Container configuration
 RUN yum update -y \
     && useradd vault \
-    && mkdir /vault \
+    && mkdir -p /vault/data \
     && chown -R vault:vault /vault 
 
-### Installing vault
-RUN yum install -y yum-utils \
-    && yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo \
-    && yum -y install vault
+COPY ./config/config.hcl /home/vault/config/config.hcl 
+
+COPY vault /vault
+
+RUN chmod +x /vault
 
 ###Vault path
 ENV PATH="PATH=$PATH:$PWD/vault"
@@ -24,4 +25,4 @@ ENV PATH="PATH=$PATH:$PWD/vault"
 EXPOSE 8080
 
 ###Running vault
-ENTRYPOINT ["vault"]
+#ENTRYPOINT ["vault server -config=/home/vault/config/config.hcl"]
