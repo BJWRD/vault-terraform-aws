@@ -42,11 +42,18 @@ This section details the deployment and teardown of the architecture. **Warning:
 
 ### Vault - Docker Container Deployment Steps
 
-#### 1.  On the newly provisioned AWS Host - Clone the repo
+#### 1.  On the newly provisioned AWS Host - Move the installed Vault file
 
+     sudo mv /usr/bin/vault /home/ec2-user
+
+#### 2.  Clone the repo
+
+    cd /home/ec2-user
     git clone https://github.com/BJWRD/vault-terraform-aws
+    mv vault vault-terraform-aws
+    cd vault-terraform-aws
 
-#### 2.  Running Vault Container
+#### 3.  Running Vault Container
 Enter the following Docker-Compose command to start the Vault container in detatched mode.
 
     docker-compose up -d
@@ -111,7 +118,7 @@ ENTER photo 5
 
 #### 1.  Access via the Web Browser
 
-Launch a web browser, and enter http://<VM IP Address>:8080/ui in the address bar.
+Launch a web browser, and enter http://(VM IP Address):8080/ui in the address bar.
 
 Then login with the root token (generated at initialisation) -
 
