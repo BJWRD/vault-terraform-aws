@@ -17,6 +17,7 @@ resource "aws_instance" "web" {
   subnet_id     = var.subnet_id
   instance_type = var.instance_type
   vpc_security_group_ids = [var.vpc_security_group_ids]
+  user_data = "${file("./modules/ec2/install.sh")}"
   #key_name - allows private key (.pem file) to be used with ec2 instance
   key_name = "terraform"
 
