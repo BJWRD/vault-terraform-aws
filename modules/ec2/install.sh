@@ -1,6 +1,9 @@
 #!/bin/bash
 #Docker & Docker-Compose Installation Script
 sudo yum update -y 
+sudo yum install yum-utils -y
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+sudo yum install vault -y
 sudo yum install git -y
 sudo amazon-linux-extras install docker -y
 sudo systemctl enable docker --now
