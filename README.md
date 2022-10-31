@@ -62,8 +62,9 @@ Once Docker and Docker-Compose has been installed, enter the following Docker-Co
     
 ENTER RUNNING CONTAINER IMAGE HERE
 
-Note: In the instance that the container has failed to run at runtime using the Dockerfile Entrypoint. Then enter the commands below -
+Note: In the instance that the container has failed to run due to the Dockerfile Entrypoint config, then comment out the Entrypoint line within the Dockerfile and enter the commands below -
 
+    docker-compose up -d
     docker ps 
     docker exec -it <container ID> bash
     vault server -config=/home/vault/config/config.hcl
