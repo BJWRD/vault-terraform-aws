@@ -47,15 +47,7 @@ This section details the deployment and teardown of the architecture. **Warning:
     git clone https://github.com/BJWRD/vault-terraform-aws
 
 #### 2.  Running Vault Container
-Before we begin the Vault Installation, we need to ensure that Docker and Docker-Compose has been installed on the VM you are using. Please follow the steps within the 'Prerequisites' section to get started.
-
-Or enter the commands below to execute the *install.sh* script which includes the Docker and Docker-Compose installation commands -
-
-    sudo chown ec2-user:ec2-user install.sh
-    sudo chmod +x install.sh
-    sudo ./install.sh
-
-Once Docker and Docker-Compose has been installed, enter the following Docker-Compose command to start the Vault container in detatched mode.
+Enter the following Docker-Compose command to start the Vault container in detatched mode.
 
     docker-compose up -d
     docker ps
@@ -68,8 +60,6 @@ Note: In the instance that the container has failed to run due to the Dockerfile
     docker ps 
     docker exec -it <container ID> bash
     vault server -config=/home/vault/config/config.hcl
-    
-ENTER photo 1
     
 ### Vault Setup
 
