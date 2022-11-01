@@ -59,7 +59,7 @@ Enter the following Docker-Compose command to start the Vault container in detat
     docker-compose up -d
     docker ps
     
-ENTER RUNNING CONTAINER IMAGE HERE
+<img width="565" alt="image" src="https://user-images.githubusercontent.com/83971386/199185616-9103031f-7577-4bc9-9dd0-59c99b403f58.png">
 
 Note: In the instance that the container has failed to run due to the Dockerfile Entrypoint config, then comment out the Entrypoint line within the Dockerfile and enter the commands below -
 
@@ -67,6 +67,8 @@ Note: In the instance that the container has failed to run due to the Dockerfile
     docker ps 
     docker exec -it <container ID> bash
     vault server -config=/home/vault/config/config.hcl
+    
+<img width="564" alt="image" src="https://user-images.githubusercontent.com/83971386/199185774-077b2535-3883-4ce2-84a6-a50bea52e76a.png">
     
 ### Vault Setup
 
@@ -79,14 +81,12 @@ First access the Container running Vault -
     docker ps 
     docker exec -it <container ID> bash   
      
-Enter photo 2
-     
 Then enter the following two commands (you will need to set the VAULT_ADDR envrionment variable accordingly to your VM IP Address) -
 
     export VAULT_ADDR='http://<VM IP Address>:8080'
     vault operator init
 
-Enter photo 3
+<img width="556" alt="image" src="https://user-images.githubusercontent.com/83971386/199186152-4d9e1f36-9813-45ae-8a31-1bdfcf2740e1.png">
 
 The initialisation outputs two incredibly important pieces of information: the *unseal keys* and the initial *root token*. This is the only time ever that all of this data is known by Vault, and also the only time that the unseal keys should ever be so close together.
 
@@ -102,7 +102,7 @@ To unseal the Vault, you must use three of the outputted unseal keys generated a
      
 Once the three unseal keys have been entered, you will see a screen similar to the one below -
 
-Enter Photo 4 
+<img width="435" alt="image" src="https://user-images.githubusercontent.com/83971386/199186318-315f3a2a-1a6f-4856-ba92-e9d50d63fff6.png">
 
 When the value for Sealed changes to false, the Vault is unsealed. As a root user, you can reseal the Vault with *vault operator seal*.
 
@@ -112,7 +112,7 @@ Finally, authenticate as the initial root token
 
     vault login
      
-ENTER photo 5
+<img width="526" alt="image" src="https://user-images.githubusercontent.com/83971386/199186402-d117f878-5274-4e74-8598-0b12da071599.png">
 
 ### Accessing the Vault Web UI
 
@@ -122,7 +122,7 @@ Launch a web browser, and enter http://(VM IP Address):8080/ui in the address ba
 
 Then login with the root token (generated at initialisation) -
 
-Enter photo 6
+<img width="1154" alt="image" src="https://user-images.githubusercontent.com/83971386/199186462-36b93abc-3b8f-4a0a-bcb8-c21e164d6451.png">
 
 #### 2.  Vault Authentication Methods
 
@@ -130,7 +130,7 @@ Now that we have a running Vault system, you may want to use different authentic
 
 This can be achieved via the *Access* screen within the Vault User Interface -
 
-Enter photo 8
+<img width="1153" alt="image" src="https://user-images.githubusercontent.com/83971386/199186544-2ee4b770-9b2f-45a3-a5ea-c8f4e7bd2307.png">
 
 More on this can be found within the following site - 
 
@@ -140,7 +140,7 @@ https://developer.hashicorp.com/vault/docs/auth
 
 We are also now in the positon whereby we are able to enter our secrets securely within the Vault -
 
-Enter photo 9
+<img width="1143" alt="image" src="https://user-images.githubusercontent.com/83971386/199186607-6d2b2c0d-aa13-4c2f-be7c-0d93c0ba5162.png">
 
 Once again, more information can be found at the following site - 
 
